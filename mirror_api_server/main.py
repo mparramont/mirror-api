@@ -27,9 +27,10 @@ import webapp2
 from service.auth import AUTH_ROUTES
 from service.notify import NOTIFY_ROUTES
 from service.service import SERVICE_ROUTES
+from service.icebreaker import ICEBREAKER_ROUTES
 from demos import DEMO_ROUTES
 
-ROUTES = (AUTH_ROUTES + SERVICE_ROUTES + NOTIFY_ROUTES + DEMO_ROUTES)
+ROUTES = (AUTH_ROUTES + SERVICE_ROUTES + ICEBREAKER_ROUTES + NOTIFY_ROUTES + DEMO_ROUTES)
 
 # Remove the next two lines if you don't want to host a Glass emulator
 from emulator.glass import GLASS_ROUTES

@@ -447,5 +447,7 @@ class DisconnectHandler(utils.BaseHandler):
 
 AUTH_ROUTES = [
     (r"(/test)?/connect", ConnectHandler),
-    (r"(/test)?/disconnect", DisconnectHandler)
+    (r"(/test)?/disconnect", DisconnectHandler),
+    (r"(/icebreaker)?/connect", ConnectHandler),
+    (r"(/icebreaker)?/disconnect", DisconnectHandler)
 ]
