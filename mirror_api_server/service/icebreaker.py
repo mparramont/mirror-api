@@ -102,10 +102,9 @@ class InitCardHandler(utils.BaseHandler):
             self.response.out.write(utils.createError(401, "Current user not connected."))
             return
 
-        template = utils.JINJA.get_template("service/templates/icebreaker/init.html")
-
-        body = {}
-        body["html"] = template.render()
+        json_data = open("service/templates/icebreaker/bundle.json")
+        body = json.load(json_data)
+        print body
 
         try:
             # Insert timeline card and return as reponse

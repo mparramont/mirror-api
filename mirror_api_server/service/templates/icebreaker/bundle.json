@@ -1,0 +1,9 @@
+{
+  "html": "<article><section><p class=\"text-x-large\">Xing Icebreaker!</p><p class=\"text-normal\">you have 3 similar fellas...</p></section></article>",
+  "htmlPages": [
+    "<article><section><p class=\"text-normal align-left blue\">...Nikkel...</p></section></article>",
+    "<article><section><p class=\"text-normal align-center red\">...Sebastian...</p></section></article>",
+    "<article><section><p class=\"text-normal align-right green\">...and Jochen...</p></section></article>"
+  ],
+  "menuItems": [{"action": "SHARE"}]
+}
