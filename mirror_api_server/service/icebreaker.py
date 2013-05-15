@@ -115,6 +115,35 @@ class InitCardHandler(utils.BaseHandler):
             self.response.status = 500
             self.response.out.write(utils.createError(500, "Failed to refresh access token."))
 
+class ContactInfoCardHandler(utils.BaseHandler):
+
+    def post(self, test):
+        """Send the card with info about one contact."""
+        print 'contact infooooooooooooooooooooooooooooooooooooooooo'
+
+        self.response.content_type = "application/json"
+
+        gplus_id = self.session.get("gplus_id")
+        service = get_auth_service(gplus_id, test)
+
+        if service is None:
+            self.response.status = 401
+            self.response.out.write(utils.createError(401, "Current user not connected."))
+            return
+
+        json_data = open("service/templates/icebreaker/contact_info.json")
+        body = json.load(json_data)
+        print body
+
+        try:
+            # Insert timeline card and return as reponse
+            result = service.timeline().insert(body=body).execute()
+            self.response.status = 200
+            self.response.out.write(json.dumps(result))
+        except AccessTokenRefreshError:
+            self.response.status = 500
+            self.response.out.write(utils.createError(500, "Failed to refresh access token."))
+
 class AttachmentHandler(utils.BaseHandler):
     """Retrieves an attachment using the current user's credentials"""
 
@@ -148,5 +177,6 @@ ICEBREAKER_ROUTES = [
     (r"(/icebreaker)?/", IndexHandler),
     (r"(/icebreaker)?/list", ListHandler),
     (r"(/icebreaker)?/new", NewCardHandler),
-    (r"(/icebreaker)?/init", InitCardHandler)
+    (r"(/icebreaker)?/init", InitCardHandler),
+    (r"(/icebreaker)?/contact_info", ContactInfoCardHandler)
 ]

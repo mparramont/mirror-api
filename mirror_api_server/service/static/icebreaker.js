@@ -229,6 +229,30 @@
       xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
       xhr.send('');
     };
+
+    this.sendContactInfoCard = function () {
+      var xhr;
+
+      xhr = new global.XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        var response;
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log("Success: " + xhr.responseText);
+            requestCards();
+          } else {
+            console.log("Error " + xhr.status + ": " + xhr.statusText);
+            if (xhr.responseText) {
+              console.log(xhr.responseText);
+            }
+          }
+        }
+      };
+
+      xhr.open("POST", global.location.pathname + "contact_info", true);
+      xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+      xhr.send('');
+    };
   }
 
   global.mirrorService = new Service();
@@ -237,5 +261,6 @@
   global.onload = function () {
     doc.getElementById("signout_button").onclick = global.mirrorService.disconnect;
     doc.getElementById("send_icebreaker_card").onclick = global.mirrorService.sendIcebreakerCard;
+    doc.getElementById("send_contact_info_card").onclick = global.mirrorService.sendContactInfoCard;
   };
 }(this));
