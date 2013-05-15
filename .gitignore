@@ -1,5 +1,6 @@
 *.pyc
 _client_secrets.json
+client_secrets.json
 mirror_api_server/endpoints_proto_datastore
 packages
 pubspec.lock
