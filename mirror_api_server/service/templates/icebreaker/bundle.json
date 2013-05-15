@@ -5,5 +5,14 @@
     "<article><section><p class=\"text-normal align-center red\">...Sebastian...</p></section></article>",
     "<article><section><p class=\"text-normal align-right green\">...and Jochen...</p></section></article>"
   ],
-  "menuItems": [{"action": "SHARE"}]
+  "menuItems": [
+    {
+      "action": "CUSTOM",
+      "id": "complete",
+      "values": [{
+        "displayName": "Handshake",
+        "iconUrl": "https://xing-mirror-api.appspot.com/images/icon-handshake.png"
+      }]
+    }
+  ]
 }
