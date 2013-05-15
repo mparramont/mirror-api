@@ -11,7 +11,8 @@
       "id": "complete",
       "values": [{
         "displayName": "Handshake",
-        "iconUrl": "https://xing-mirror-api.appspot.com/images/icon-handshake.png"
+        "iconUrl": "https://xing-mirror-api.appspot.com/images/icon-handshake.png",
+        "state" : "CONFIRMED"
       }]
     }
   ]
