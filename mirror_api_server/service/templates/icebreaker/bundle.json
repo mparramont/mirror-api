@@ -1,9 +1,9 @@
 {
-  "html": "<article><section><p class=\"text-x-large\">Xing Icebreaker!</p><p class=\"text-normal\">you have 3 similar fellas...</p></section></article>",
+  "html": "<article class='photo'><img src='https://xing-mirror-api.appspot.com/images/screen-1.png' width='100%' height='100%'></article>",
   "htmlPages": [
-    "<article><section><p class=\"text-normal align-left blue\">...Nikkel...</p></section></article>",
-    "<article><section><p class=\"text-normal align-center red\">...Sebastian...</p></section></article>",
-    "<article><section><p class=\"text-normal align-right green\">...and Jochen...</p></section></article>"
+    "<article class='photo'><img src='https://xing-mirror-api.appspot.com/images/screen-2a.png' width='100%' height='100%'></article>",
+    "<article class='photo'><img src='https://xing-mirror-api.appspot.com/images/screen-2b.png' width='100%' height='100%'></article>",
+    "<article class='photo'><img src='https://xing-mirror-api.appspot.com/images/screen-2c.png' width='100%' height='100%'></article>"
   ],
   "menuItems": [
     {
@@ -14,6 +14,10 @@
         "iconUrl": "https://xing-mirror-api.appspot.com/images/icon-handshake.png",
         "state" : "CONFIRMED"
       }]
-    }
+    },
+  	{
+  	  "action": "TOGGLE_PINNED",
+      "removeWhenSelected": true
+	}
   ]
 }
