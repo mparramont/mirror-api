@@ -2,7 +2,6 @@
 .card {
   width: 640px;
   height: 360px;
-  background-color: black;
 }
 
 #map-time-footer {
@@ -28,10 +27,7 @@ article {
   height: 360px;
   overflow: hidden;
   position: relative;
-
-  background-color: #000;
   color: #fff;
-
   font-family: "Roboto";
   font-weight: 100;
   font-size: 40px;
