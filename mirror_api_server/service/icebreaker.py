@@ -87,6 +87,34 @@ class NewCardHandler(utils.BaseHandler):
             self.response.status = 500
             self.response.out.write(utils.createError(500, "Failed to refresh access token."))
 
+class InitCardHandler(utils.BaseHandler):
+
+    def post(self, test):
+        """Send the first Xing Icebreaker card."""
+
+        self.response.content_type = "application/json"
+
+        gplus_id = self.session.get("gplus_id")
+        service = get_auth_service(gplus_id, test)
+
+        if service is None:
+            self.response.status = 401
+            self.response.out.write(utils.createError(401, "Current user not connected."))
+            return
+
+        template = utils.JINJA.get_template("service/templates/icebreaker/init.html")
+
+        body = {}
+        body["text"] = template.render()
+
+        try:
+            # Insert timeline card and return as reponse
+            result = service.timeline().insert(body=body).execute()
+            self.response.status = 200
+            self.response.out.write(json.dumps(result))
+        except AccessTokenRefreshError:
+            self.response.status = 500
+            self.response.out.write(utils.createError(500, "Failed to refresh access token."))
 
 class AttachmentHandler(utils.BaseHandler):
     """Retrieves an attachment using the current user's credentials"""
@@ -120,5 +148,6 @@ ICEBREAKER_ROUTES = [
     (r"(/icebreaker)?/attachment/(.*)/(.*)", AttachmentHandler),
     (r"(/icebreaker)?/", IndexHandler),
     (r"(/icebreaker)?/list", ListHandler),
-    (r"(/icebreaker)?/new", NewCardHandler)
+    (r"(/icebreaker)?/new", NewCardHandler),
+    (r"(/icebreaker)?/init", InitCardHandler)
 ]
