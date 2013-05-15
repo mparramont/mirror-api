@@ -206,40 +206,6 @@
       }
     };
 
-    this.sendCard = function () {
-      var input, xhr, text, message;
-      input = doc.getElementById("new_card");
-      text = input.value;
-
-      message = {};
-
-      if (text) {
-        input.value = "";
-        message.text = text;
-
-        xhr = new global.XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          var response;
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              console.log("Success: " + xhr.responseText);
-              requestCards();
-            } else {
-              console.log("Error " + xhr.status + ": " + xhr.statusText);
-              if (xhr.responseText) {
-                console.log(xhr.responseText);
-              }
-            }
-          }
-        };
-
-        xhr.open("POST", global.location.pathname + "new", true);
-        xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-        xhr.send(JSON.stringify(message));
-      }
-
-    };
-
     this.sendIcebreakerCard = function () {
       var xhr;
 
@@ -270,7 +236,6 @@
 
   global.onload = function () {
     doc.getElementById("signout_button").onclick = global.mirrorService.disconnect;
-    doc.getElementById("send_card").onclick = global.mirrorService.sendCard;
     doc.getElementById("send_icebreaker_card").onclick = global.mirrorService.sendIcebreakerCard;
   };
 }(this));
