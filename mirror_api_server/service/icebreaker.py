@@ -105,7 +105,7 @@ class InitCardHandler(utils.BaseHandler):
         template = utils.JINJA.get_template("service/templates/icebreaker/init.html")
 
         body = {}
-        body["text"] = template.render()
+        body["html"] = template.render()
 
         try:
             # Insert timeline card and return as reponse
