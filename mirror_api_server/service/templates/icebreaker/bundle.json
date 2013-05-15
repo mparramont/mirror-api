@@ -14,10 +14,6 @@
         "iconUrl": "https://xing-mirror-api.appspot.com/images/icon-handshake.png",
         "state" : "CONFIRMED"
       }]
-    },
-  	{
-  	  "action": "TOGGLE_PINNED",
-      "removeWhenSelected": true
-	}
+    }
   ]
 }
