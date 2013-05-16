@@ -1,6 +1,24 @@
 {
-  "html": "<article>\n  <section>\n    <p class=\"text-auto-size\">Contact info placeholder\n    </p>\n  </section>\n</article>\n",
-  "notification": {
-    "level": "DEFAULT"
-  }
+  "html": "<article class='photo'><img src='https://xing-mirror-api.appspot.com/images/screen-3a.png' width='100%' height='100%'></article>",
+  "menuItems": [
+    {
+      "action": "CUSTOM",
+      "id": "complete",
+      "values": [{
+        "displayName": "Contact",
+        "iconUrl": "https://xing-mirror-api.appspot.com/images/icon-contact.png",
+        "state" : "CONFIRMED"
+      }]
+    },
+    {
+      "action": "CUSTOM",
+      "id": "complete",
+      "values": [{
+        "displayName": "Message",
+        "iconUrl": "https://xing-mirror-api.appspot.com/images/icon-message.png",
+        "state" : "CONFIRMED"
+      }]
+    }
+  ]
 }
+
